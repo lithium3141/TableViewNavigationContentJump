@@ -55,7 +55,13 @@
                             <outlet property="delegate" destination="AmM-Wf-1eB" id="8ft-pt-YCA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="MdQ-R8-Bgh"/>
+                    <navigationItem key="navigationItem" id="MdQ-R8-Bgh">
+                        <barButtonItem key="rightBarButtonItem" title="Randomize Heights" id="ZqW-Aw-Yul">
+                            <connections>
+                                <action selector="rerandomizeHeights" destination="AmM-Wf-1eB" id="VSB-tD-h0K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpl-Gb-bCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

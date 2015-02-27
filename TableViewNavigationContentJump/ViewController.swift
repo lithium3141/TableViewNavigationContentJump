@@ -27,16 +27,28 @@ class TableViewCell: UITableViewCell {
 class TableViewController: UITableViewController {
     
     private var heights: [CGFloat] = []
+    
+    private static let RowCount = 30
+    private static let RowHeightMinimum: UInt32 = 30
+    private static let RowHeightVariance: UInt32 = 20
 
+    @IBAction private func rerandomizeHeights() {
+        self.heights = []
+        
+        for i in 0..<TableViewController.RowCount {
+            self.heights.append(CGFloat(TableViewController.RowHeightMinimum + arc4random_uniform(TableViewController.RowHeightVariance)))
+        }
+        
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 48
         
-        for i in 0..<30 {
-            self.heights.append(CGFloat(30 + arc4random_uniform(20)))
-        }
+        self.rerandomizeHeights()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
